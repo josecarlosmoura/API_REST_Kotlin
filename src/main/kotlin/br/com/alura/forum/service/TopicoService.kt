@@ -2,6 +2,7 @@ package br.com.alura.forum.service
 
 import br.com.alura.forum.dto.TopicoFormDTO
 import br.com.alura.forum.dto.TopicoFormUpdateDTO
+import br.com.alura.forum.dto.TopicoPorCategoriaDTO
 import br.com.alura.forum.dto.TopicoViewDTO
 import br.com.alura.forum.exception.NotFoundException
 import br.com.alura.forum.mapper.TopicoFormMapper
@@ -59,6 +60,10 @@ class TopicoService (
 
     fun deletar(id: Long) {
         topicoRepository.deleteById(id)
+    }
+
+    fun relatorio(): List<TopicoPorCategoriaDTO> {
+        return topicoRepository.relatorio()
     }
 
 }
