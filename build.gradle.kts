@@ -25,10 +25,11 @@ dependencies {
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+	implementation("org.flywaydb:flyway-core:10.8.1")
+	implementation("org.springframework.boot:spring-boot-starter-cache:3.2.2")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	developmentOnly("com.h2database:h2")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
-	implementation("org.flywaydb:flyway-core:10.8.1")
 }
 
 tasks.withType<KotlinCompile> {
