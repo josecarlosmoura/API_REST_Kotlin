@@ -6,3 +6,4 @@ create table curso(
 );
 
 insert into curso values (1, 'Kotlin', 'Desenvolvimento de software');
+insert into curso values (2, 'CSharp', 'Desenvolvimento de software');

@@ -5,6 +5,10 @@ import br.com.alura.forum.dto.TopicoFormUpdateDTO
 import br.com.alura.forum.dto.TopicoViewDTO
 import br.com.alura.forum.service.TopicoService
 import jakarta.validation.Valid
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
+import org.springframework.data.domain.Sort
+import org.springframework.data.web.PageableDefault
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.transaction.annotation.Transactional
@@ -15,9 +19,9 @@ import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestController
-import org.springframework.web.util.UriBuilder
 import org.springframework.web.util.UriComponentsBuilder
 
 @RestController
@@ -25,8 +29,11 @@ import org.springframework.web.util.UriComponentsBuilder
 class TopicoController (private val topicoService: TopicoService) {
 
     @GetMapping
-    fun listar(): List<TopicoViewDTO>{
-        return topicoService.listar()
+    fun listar(
+        @RequestParam(required = false) nomeCurso:String?,
+        @PageableDefault(size = 5, sort = ["dataCriacao"], direction = Sort.Direction.DESC) paginacao: Pageable
+    ): Page<TopicoViewDTO>{
+        return topicoService.listar(nomeCurso, paginacao)
     }
 
     @GetMapping("/{id}")
