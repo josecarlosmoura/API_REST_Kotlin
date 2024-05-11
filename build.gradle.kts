@@ -6,10 +6,12 @@ plugins {
 	kotlin("jvm") version "1.9.22"
 	kotlin("plugin.spring") version "1.9.22"
 	kotlin("plugin.jpa") version "1.9.22"
+	application
 }
 
 group = "br.com.alura"
 version = "0.0.1-SNAPSHOT"
+val mainClassName = "ForumApplication"
 
 java {
 	sourceCompatibility = JavaVersion.VERSION_17
@@ -27,6 +29,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.flywaydb:flyway-core:10.8.1")
 	implementation("org.springframework.boot:spring-boot-starter-cache:3.2.2")
+	implementation("org.springframework.boot:spring-boot-starter-security:3.2.5")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	developmentOnly("com.h2database:h2")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
