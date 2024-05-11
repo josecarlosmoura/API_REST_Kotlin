@@ -16,3 +16,5 @@ spring:
   h2:
     console:
       enable: true
+jwt:
+  secret: 3292f52f5c6531299ae2e3b110df21653292f52f5c6531299ae2e3b110df2165
